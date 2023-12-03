@@ -3,13 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const cargarCategorias = () => {
-    // Llamada a la API para obtener las categorías
     fetch("https://dummyjson.com/products/categories")
         .then(response => response.json())
         .then(data => {
             const categorySelector = document.getElementById("categorySelector");
-
-            // Llenar el selector de categorías con las obtenidas de la API
             data.forEach(category => {
                 const option = document.createElement("option");
                 option.value = category;
@@ -22,7 +19,6 @@ const cargarCategorias = () => {
 
 const filtrarPorCategoria = () => {
     const selectedCategory = document.getElementById("categorySelector").value;
-    // Llamar a la función de búsqueda con la categoría seleccionada
     buscarProducto(selectedCategory);
 };
 
@@ -40,7 +36,6 @@ const buscarProducto = (categoria = "") => {
             
             if (res.products) {
                 res.products.forEach(i => {
-                    // Verificar si el título incluye el texto de búsqueda o si no hay filtro de búsqueda
                     if (i.title.toUpperCase().includes(searchInput) || searchInput === "") {
                         valores = document.getElementById("productosencontrados").innerHTML += `
                             <div class="card diseñocards" style="width: 18rem;">
@@ -56,7 +51,6 @@ const buscarProducto = (categoria = "") => {
                 });
             }
             else if (res.length === 1) {
-                // Verificar si el título incluye el texto de búsqueda o si no hay filtro de búsqueda
                 if (res.title.toUpperCase().includes(searchInput) || searchInput === "") {
                     valores = document.getElementById("productosencontrados").innerHTML += `
                         <div class="card diseñocards" style="width: 18rem;">

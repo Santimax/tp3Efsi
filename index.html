@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1>Buscador de Productos</h1>
+
+        <!-- Barra de búsqueda por título -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="search-bar" placeholder="Buscar por título">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onclick="buscarProducto()">Buscar</button>
+                <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#categoryModal">Filtrar por Categoría</button>
+            </div>
+        </div>
+
+        <!-- Modal para filtrar por categoría -->
+        <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="categoryModalLabel">Seleccionar Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Aquí se cargarán las categorías -->
+                        <select class="form-control" id="categorySelector"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" onclick="filtrarPorCategoria()">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar los productos encontrados -->
+        <div id="productosencontrados" class="row mt-5">
+            <!-- Se mostrarán los productos aquí -->
+        </div>
+    </div>
+
+    <!-- Modal para mostrar información detallada del producto -->
+    <div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Información del Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="titulo"></h5>
+                    <img id="imagen" class="img-fluid" alt="Producto">
+                    <p id="descripcion"></p>
+                    <h6 id="precio"></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
